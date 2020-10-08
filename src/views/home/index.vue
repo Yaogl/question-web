@@ -18,7 +18,7 @@
       </van-checkbox-group>
       <van-button type="primary" @click="submit">提交</van-button>
     </div>
-    <audio id="audio" :src="audio" />
+    <audio id="audio" :src="audio" autoplay/>
     <!-- <van-cell icon="success" v-for="item in list" :key="item" :title="item" /> -->
   </div>
 </template>
@@ -85,8 +85,10 @@ export default {
     },
     palyAudio(right) {
       const list = right ? this.rightSong : this.wrongSong
-      this.audio = list[0]
-      document.getElementById('audio').play()
+      let ins = Math.floor(Math.random() * 2)
+      this.audio = list[ins]
+      var doc = document.getElementById('audio')
+      doc.load()
     }
   }
 }

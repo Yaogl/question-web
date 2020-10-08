@@ -46,8 +46,8 @@ export default {
         if (res.code === -1) {
           Toast('登录失败')
         } else {
-          this.$router.push('/')
           this.setUserInfo(res.data)
+          this.$router.push('/')
         }
         this.loading = false
       })
